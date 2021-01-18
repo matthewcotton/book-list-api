@@ -53,7 +53,6 @@ exports.searchId = function (req, res, next) {
 /* Return books based on Title */
 exports.searchTitle = function (req, res, next) {
   const books = findTitle(req.params.title);
-  console.log(books);
   if (!books.length) {
     return next(createError(404, `No book found with title ${req.params.title}`));
   }
@@ -72,7 +71,6 @@ exports.searchAuthor = function (req, res, next) {
 /* Return book based on readStatus */
 exports.read = function (req, res, next) {
   let books = [];
-  console.log(req.params.readStatus)
   if (req.params.readStatus == "true") {
     books = findRead(true);
   } else if (req.params.readStatus == "false") {
